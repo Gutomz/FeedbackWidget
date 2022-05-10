@@ -4,8 +4,11 @@ import React, { useRef } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { theme } from '../../theme';
+import { feedbackTypes } from '../../utils/feedbackTypes';
+import { Options } from '../Options';
 import { styles } from './styles';
 
+export type FeedbackType = keyof typeof feedbackTypes;
 
 export const Widget = gestureHandlerRootHOC(() => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -33,7 +36,7 @@ export const Widget = gestureHandlerRootHOC(() => {
         backgroundStyle={styles.modal}
         handleIndicatorStyle={styles.indicator}
       >
-        
+        <Options />
       </BottomSheet>
     </>
   );
