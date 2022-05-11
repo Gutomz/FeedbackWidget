@@ -1,16 +1,18 @@
 import html2canvas from 'html2canvas';
 import { Camera, Trash } from "phosphor-react";
-import { useState } from 'react';
+import { ButtonHTMLAttributes, useState } from 'react';
 import { LoadingMark } from './LoadingMark';
 
 interface ScreenshotButtonProps {
   preview: string | null;
   onScreenshot: (screenshot: string | null) => void;
+  disabled?: boolean;
 }
 
 export function ScreenshotButton({ 
   preview, 
   onScreenshot,
+  disabled = false,
 }: ScreenshotButtonProps) {
   const [isTakingScreenshot, setIsTakingScreenshot] = useState(false);
 
@@ -33,6 +35,7 @@ export function ScreenshotButton({
           backgroundPosition: 'right bottom',
           backgroundSize: 180,
         }}
+        disabled={disabled}
       >
         <Trash weight="fill" />
       </button>
